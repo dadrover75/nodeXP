@@ -190,105 +190,105 @@ describe('Start Product Test', () =>
         });
     });
 
-    // describe('Product Fails', () =>
-    // {
-    //     beforeAll(async() =>
-    //     {
-    //         const payload = {
-    //             email: 'user@node.com',
-    //             password: '12345678'
-    //         };
+    describe('Product Fails', () =>
+    {
+        beforeAll(async() =>
+        {
+            const payload = {
+                email: 'user@node.com',
+                password: '12345678'
+            };
 
-    //         const response: ILoginResponse = await request
-    //             .post('/api/auth/login?provider=local')
-    //             .set('Accept', 'application/json')
-    //             .send(payload);
+            const response: ILoginResponse = await request
+                .post('/api/auth/login?provider=local')
+                .set('Accept', 'application/json')
+                .send(payload);
 
-    //         const { body: { data } } = response;
+            const { body: { data } } = response;
 
-    //         token = data.token;
-    //     });
+            token = data.token;
+        });
 
-    //     test('Add Product /products', async() =>
-    //     {
-    //         const payload = {
-    //             name: 'Product 1',
-    //             description: 'Product 1 description',
-    //             price: '100',
-    //             quantity: 10
-    //         };
+        test('Add Product /products', async() =>
+        {
+            const payload = {
+                name: 'Product 1',
+                description: 'Product 1 description',
+                price: '100',
+                quantity: 10
+            };
 
-    //         const response: IProductResponse = await request
-    //             .post('/api/products')
-    //             .set('Accept', 'application/json')
-    //             .set('Authorization', `Bearer ${token}`)
-    //             .send(payload);
+            const response: IProductResponse = await request
+                .post('/api/products')
+                .set('Accept', 'application/json')
+                .set('Authorization', `Bearer ${token}`)
+                .send(payload);
 
-    //         const { body: { message, errors: [error] } } = response;
+            const { body: { message, errors: [error] } } = response;
 
-    //         expect(response.statusCode).toStrictEqual(422);
-    //         expect(message).toStrictEqual('Failed Request.');
+            expect(response.statusCode).toStrictEqual(422);
+            expect(message).toStrictEqual('Failed Request.');
 
-    //         expect(error.property).toStrictEqual('price');
-    //         expect(error.constraints.isInt).toStrictEqual('price must be an integer number');
-    //     });
+            expect(error.property).toStrictEqual('price');
+            expect(error.constraints.isInt).toStrictEqual('price must be an integer number');
+        });
 
-    //     test('Get product /products/:id', async() =>
-    //     {
-    //         const response: IProductResponse = await request
-    //             .get(`/api/products/${productId}dasdasda123`)
-    //             .set('Accept', 'application/json')
-    //             .set('Authorization', `Bearer ${token}`)
-    //             .send();
+        test('Get product /products/:id', async() =>
+        {
+            const response: IProductResponse = await request
+                .get(`/api/products/${productId}dasdasda123`)
+                .set('Accept', 'application/json')
+                .set('Authorization', `Bearer ${token}`)
+                .send();
 
-    //         const { body: { message, errors: [error] } } = response;
+            const { body: { message, errors: [error] } } = response;
 
-    //         expect(response.statusCode).toStrictEqual(422);
-    //         expect(message).toStrictEqual('Failed Request.');
+            expect(response.statusCode).toStrictEqual(422);
+            expect(message).toStrictEqual('Failed Request.');
 
-    //         expect(error.property).toStrictEqual('id');
-    //         expect(error.constraints.isUuid).toBeDefined();
-    //         expect(error.constraints.isUuid).toStrictEqual('id must be a UUID');
-    //     });
+            expect(error.property).toStrictEqual('id');
+            expect(error.constraints.isUuid).toBeDefined();
+            expect(error.constraints.isUuid).toStrictEqual('id must be a UUID');
+        });
 
-    //     test('Update Product /products/:id', async() =>
-    //     {
-    //         const payload = {
-    //             name: 11,
-    //             description: 'Product 1 description',
-    //             price: 100,
-    //             quantity: '10'
-    //         };
+        test('Update Product /products/:id', async() =>
+        {
+            const payload = {
+                name: 11,
+                description: 'Product 1 description',
+                price: 100,
+                quantity: '10'
+            };
 
-    //         const response: IProductResponse = await request
-    //             .put(`/api/products/${productId}`)
-    //             .set('Accept', 'application/json')
-    //             .set('Authorization', `Bearer ${token}`)
-    //             .send(payload);
+            const response: IProductResponse = await request
+                .put(`/api/products/${productId}`)
+                .set('Accept', 'application/json')
+                .set('Authorization', `Bearer ${token}`)
+                .send(payload);
 
-    //         const { body: { message, errors: [errorName] } } = response;
+            const { body: { message, errors: [errorName] } } = response;
 
-    //         expect(response.statusCode).toStrictEqual(422);
-    //         expect(message).toStrictEqual('Failed Request.');
+            expect(response.statusCode).toStrictEqual(422);
+            expect(message).toStrictEqual('Failed Request.');
 
-    //         expect(errorName.property).toStrictEqual('name');
-    //         expect(errorName.constraints.isString).toBeDefined();
-    //         expect(errorName.constraints.isString).toStrictEqual('name must be a string');
-    //     });
+            expect(errorName.property).toStrictEqual('name');
+            expect(errorName.constraints.isString).toBeDefined();
+            expect(errorName.constraints.isString).toStrictEqual('name must be a string');
+        });
 
-    //     test('Delete product error /products/:id', async() =>
-    //     {
-    //         const deleteErrorResponse: IProductResponse = await request
-    //             .delete(`/api/products/${deleteResponse.body.data.id}`)
-    //             .set('Accept', 'application/json')
-    //             .set('Authorization', `Bearer ${token}`)
-    //             .send();
+        test('Delete product error /products/:id', async() =>
+        {
+            const deleteErrorResponse: IProductResponse = await request
+                .delete(`/api/products/${deleteResponse.body.data.id}`)
+                .set('Accept', 'application/json')
+                .set('Authorization', `Bearer ${token}`)
+                .send();
 
-    //         const { body: { message } } = deleteErrorResponse;
+            const { body: { message } } = deleteErrorResponse;
 
-    //         expect(deleteErrorResponse.statusCode).toStrictEqual(400);
-    //         expect(message).toStrictEqual('Product not found.');
-    //     });
-    // });
+            expect(deleteErrorResponse.statusCode).toStrictEqual(400);
+            expect(message).toStrictEqual('Product not found.');
+        });
+    });
 });
 
