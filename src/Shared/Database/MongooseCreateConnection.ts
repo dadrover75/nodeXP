@@ -5,12 +5,13 @@ import { ICreateConnection } from '@digichanges/shared-experience';
 import IUserDocument from '../../User/Infrastructure/Schemas/IUserDocument';
 import IRoleDocument from '../../Role/Infrastructure/Schemas/IRoleDocument';
 import IItemDocument from '../../Item/Infrastructure/Schemas/IItemDocument';
+import IProductDocument from '../../Product/Infrastructure/Schemas/IProductDocument';
 import IFileDocument from '../../File/Infrastructure/Schemas/IFileDocument';
 import INotificationDocument from '../../Notification/Infrastructure/Schemas/INotificationDocument';
 import ITokenDocument from '../../Auth/Infrastructure/Schemas/ITokenDocument';
 
 import ItemSchema from '../../Item/Infrastructure/Schemas/ItemMongoose';
-
+import ProductSchema from '../../Product/Infrastructure/Schemas/ProductMongoose';
 import RoleSchema from '../../Role/Infrastructure/Schemas/RoleMongoose';
 import UserSchema from '../../User/Infrastructure/Schemas/UserMongoose';
 import FileSchema from '../../File/Infrastructure/Schemas/FileMongoose';
@@ -49,6 +50,7 @@ class MongooseCreateConnection implements ICreateConnection
         connection.model<IUserDocument>('User', UserSchema);
         connection.model<IRoleDocument>('Role', RoleSchema);
         connection.model<IItemDocument>('Item', ItemSchema);
+        connection.model<IProductDocument>('Product', ProductSchema);
         connection.model<IFileDocument>('File', FileSchema);
 
         // Infrastructure

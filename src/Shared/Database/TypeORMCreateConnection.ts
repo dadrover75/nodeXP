@@ -4,6 +4,7 @@ import { ICreateConnection } from '@digichanges/shared-experience';
 import User from '../../User/Infrastructure/Schemas/UserTypeORM';
 import Role from '../../Role/Infrastructure/Schemas/RoleTypeORM';
 import Item from '../../Item/Infrastructure/Schemas/ItemTypeORM';
+import Product from '../../Product/Infrastructure/Schemas/ProductTypeORM';
 import File from '../../File/Infrastructure/Schemas/FileTypeORM';
 import Notification from '../../Notification/Infrastructure/Schemas/NotificationTypeORM';
 import TokenSchema from '../../Auth/Infrastructure/Schemas/TokenTypeORM';
@@ -18,7 +19,8 @@ class TypeORMCreateConnection implements ICreateConnection
         Notification,
         Role,
         User,
-        Item
+        Item,
+        Product
     ];
 
     constructor(config: any)
