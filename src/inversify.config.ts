@@ -80,3 +80,5 @@ container.bind<ITokenRepository<ITokenDomain>>(REPOSITORIES.ITokenRepository).to
 container.bind<INotificationFactory>(FACTORIES.INotificationFactory).to(NotificationFactory);
 
 export default container;
+
+// revisado
