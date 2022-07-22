@@ -71,7 +71,7 @@ describe('Start Product Test', () =>
         test('Get Product /products/:id', async() =>
         {
             const payload = {
-                name: 'Product 1',
+                name: 'Product 2',
                 description: 'Product 1 description',
                 price: 100,
                 quantity: 10
@@ -96,8 +96,8 @@ describe('Start Product Test', () =>
         test('Update Product /products/:id', async() =>
         {
             const payload = {
-                name: 'Product 1 Updated',
-                description: 'Product 1 description Updated',
+                name: 'Product 3 Updated',
+                description: 'Product 3 description Updated',
                 price: 101,
                 quantity: 11
             };
@@ -116,8 +116,8 @@ describe('Start Product Test', () =>
         test('Delete Product /products/:id', async() =>
         {
             const payload = {
-                name: 'Product 1 for delete',
-                description: 'Product 1 description',
+                name: 'Product 4 for delete',
+                description: 'Product 4 description',
                 price: 100,
                 quantity: 10
             };

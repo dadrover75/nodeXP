@@ -6,6 +6,7 @@ import IFormatResponder from './Shared/InterfaceAdapters/IFormatResponder';
 import Responder from './App/Presentation/Shared/Http/Express/Responder';
 
 import IItemRepository from './Item/Infrastructure/Repositories/IItemRepository';
+import IProductRepository from './Product/Infrastructure/Repositories/IProductRepository';
 import IUserRepository from './User/Infrastructure/Repositories/IUserRepository';
 import IRoleRepository from './Role/Infrastructure/Repositories/IRoleRepository';
 import IFileRepository from './File/Infrastructure/Repositories/IFileRepository';
@@ -14,11 +15,13 @@ import { REPOSITORIES } from './Config/Injects/repositories';
 import { TYPES } from './Config/Injects/types';
 
 import ItemMongoRepository from './Item/Infrastructure/Repositories/ItemMongoRepository';
+import ProductMongoRepository from './Product/Infrastructure/Repositories/ProductMongoRepository';
 import UserMongooseRepository from './User/Infrastructure/Repositories/UserMongooseRepository';
 import RoleMongooseRepository from './Role/Infrastructure/Repositories/RoleMongooseRepository';
 import FileMongooseRepository from './File/Infrastructure/Repositories/FileMongooseRepository';
 
 import ItemSqlRepository from './Item/Infrastructure/Repositories/ItemSqlRepository';
+import ProductSqlRepository from './Product/Infrastructure/Repositories/ProductSqlRepository';
 import UserTypeORMRepository from './User/Infrastructure/Repositories/UserTypeORMRepository';
 import FileTypeORMRepository from './File/Infrastructure/Repositories/FileTypeORMRepository';
 import RoleTypeORMRepository from './Role/Infrastructure/Repositories/RoleTypeORMRepository';
@@ -34,6 +37,7 @@ import NotificationFactory from './Notification/Shared/NotificationFactory';
 import RoleMikroORMRepository from './Role/Infrastructure/Repositories/RoleMikroORMRepository';
 import UserMikroORMRepository from './User/Infrastructure/Repositories/UserMikroORMRepository';
 import ItemMikroSqlRepository from './Item/Infrastructure/Repositories/ItemMikroSqlRepository';
+import ProductMikroSqlRepository from './Product/Infrastructure/Repositories/ProductMikroSqlRepository';
 import FileMikroORMRepository from './File/Infrastructure/Repositories/FileMikroORMRepository';
 
 const container = new Container();
@@ -46,6 +50,7 @@ container.bind<IFormatResponder>(TYPES.IFormatResponder).to(FormatResponder);
 if (MainConfig.getInstance().getConfig().dbConfig.default === 'TypeORM')
 {
     container.bind<IItemRepository>(REPOSITORIES.IItemRepository).to(ItemSqlRepository).inSingletonScope();
+    container.bind<IProductRepository>(REPOSITORIES.IProductRepository).to(ProductSqlRepository).inSingletonScope();
     container.bind<IUserRepository>(REPOSITORIES.IUserRepository).to(UserTypeORMRepository).inSingletonScope();
     container.bind<IRoleRepository>(REPOSITORIES.IRoleRepository).to(RoleTypeORMRepository).inSingletonScope();
     container.bind<IFileRepository>(REPOSITORIES.IFileRepository).to(FileTypeORMRepository).inSingletonScope();
@@ -53,6 +58,7 @@ if (MainConfig.getInstance().getConfig().dbConfig.default === 'TypeORM')
 else if (MainConfig.getInstance().getConfig().dbConfig.default === 'Mongoose')
 {
     container.bind<IItemRepository>(REPOSITORIES.IItemRepository).to(ItemMongoRepository).inSingletonScope();
+    container.bind<IProductRepository>(REPOSITORIES.IProductRepository).to(ProductMongoRepository).inSingletonScope();
     container.bind<IUserRepository>(REPOSITORIES.IUserRepository).to(UserMongooseRepository).inSingletonScope();
     container.bind<IRoleRepository>(REPOSITORIES.IRoleRepository).to(RoleMongooseRepository).inSingletonScope();
     container.bind<IFileRepository>(REPOSITORIES.IFileRepository).to(FileMongooseRepository).inSingletonScope();
@@ -61,6 +67,7 @@ else if (MainConfig.getInstance().getConfig().dbConfig.default === 'Mongoose')
 else if (MainConfig.getInstance().getConfig().dbConfig.default === 'MikroORM')
 {
     container.bind<IItemRepository>(REPOSITORIES.IItemRepository).to(ItemMikroSqlRepository).inSingletonScope();
+    container.bind<IProductRepository>(REPOSITORIES.IProductRepository).to(ProductMikroSqlRepository).inSingletonScope();
     container.bind<IRoleRepository>(REPOSITORIES.IRoleRepository).to(RoleMikroORMRepository).inSingletonScope();
     container.bind<IUserRepository>(REPOSITORIES.IUserRepository).to(UserMikroORMRepository).inSingletonScope();
     container.bind<IFileRepository>(REPOSITORIES.IFileRepository).to(FileMikroORMRepository).inSingletonScope();
