@@ -21,6 +21,10 @@ class Roles
                 Permissions.ITEMS_UPDATE,
                 Permissions.ITEMS_SHOW,
                 Permissions.ITEMS_LIST,
+                Permissions.PRODUCTS_SAVE,
+                Permissions.PRODUCTS_UPDATE,
+                Permissions.PRODUCTS_SHOW,
+                Permissions.PRODUCTS_LIST,
                 Permissions.FILES_UPLOAD,
                 Permissions.FILES_DOWNLOAD,
                 Permissions.FILES_LIST

@@ -8,6 +8,7 @@ import exphbs from 'express-handlebars';
 
 import '../../../Handlers/Express/IndexHandler';
 import '../../../../../Item/Presentation/Handlers/Express/ItemHandler';
+import '../../../../../Product/Presentation/Handlers/Express/ProductHandler';
 import '../../../../../User/Presentation/Handlers/Express/UserHandler';
 import '../../../../../Auth/Presentation/Handlers/Express/AuthHandler';
 import '../../../../../Role/Presentation/Handlers/Express/RoleHandler';
